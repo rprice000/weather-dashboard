@@ -17,8 +17,8 @@
   <body>
 <!-- HEADER START -->
     <header>
-        <div class="bg-dark text-light text-center pb-2 mb-2" style="font-size: 50px;">
-            Weather Dashboard
+        <div class="bg-dark text-light text-center">
+            <h1>Weather Dashboard</h1>
         </div>
     </header>
 <!-- HEADER END -->
@@ -28,18 +28,18 @@
         <div class="row">
 
 <!-- CITY SEARCH / SEARCH HISTORY COLUMN START -->
-            <div class="col-md-3">
+            <div class="col-md-3" id="citySearchColumn">
                 <h2>Search for a City</h2>
                 <input type="text" placeholder="City Name">
-                <button type="button" class="button" id="button"></button>
+                <button type="button" class="button" id="searchButton">Search</button>
                 <div id="searchHistory"></div>
             </div>
 <!-- CITY SEARCH / SEARCH HISTORY COLUMN END -->
 
 <!-- CITY WEATHER DATA START -->
             <div class="col-md-9">
-<!-- CURRENT WEATHER DATA START -->
-                <div class="row" id="fullCityContent">
+  <!-- CURRENT WEATHER DATA START -->
+                <div class="row" id="cityContentColumn">
                     <div class="col" id="currentWeather">
                         <h2 id="cityName"></h2>
                         <p id="temperature"></p>
@@ -48,14 +48,14 @@
                         <p id="uvIndex"></p>
                     </div>
                 </div>
-<!-- CURRENT WEATHER DATA END -->
-<!-- WEEKLY WEATHER DATA START -->
+  <!-- CURRENT WEATHER DATA END -->
+  <!-- WEEKLY WEATHER DATA START -->
                 <div class="row" id="weeklyContent">
                     <div class="col" id="weeklyForecast">
                         <h2>5-Day Forecast</h2>
                     </div>
                 </div>
-<!-- WEEKLY WEATHER DATA END -->
+  <!-- WEEKLY WEATHER DATA END -->
             </div>
 <!-- CITY WEATHER DATA END -->
 
@@ -79,3 +79,11 @@
   </body>
 
 </html>
+
+
+<!--
+MAY NEED TO GET RID OF FONTAWESOME
+
+
+
+-->
