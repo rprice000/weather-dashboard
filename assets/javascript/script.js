@@ -1,5 +1,16 @@
 
 
+
+
+$("#searchHistory").on("click", (event) => {
+  if(event.target.matches("button")){
+    var searchInput = event.target.textContent;
+    newInput = false;
+    openWeatherData(searchInput);
+  }
+});
+
+
 function searchListButtons(searchInput) {
   var cityButton = $("<button>")
   cityButton.text(searchInput);
