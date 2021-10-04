@@ -1,0 +1,13 @@
+
+
+#cityContentColumn{
+    height: 300px;
+}
+
+.forecastCards{
+    background-color: gray;
+    color: white;   
+    display: inline-block;
+    margin-right: 20px;
+    width: 200px;
+}

@@ -38,7 +38,7 @@ function openWeatherData(searchInput){
       if(newInput){
         searchListButtons(city);
       };
-      $(".weeklyForecast").remove();
+      $(".forecastCards").remove();
 
       $("#cityName").text((city));
       $("#cityName").append($("<img>").attr("src", "https://openweathermap.org/img/wn/" + response.weather[0].icon + "@2x.png"));
@@ -80,10 +80,18 @@ function openWeatherData(searchInput){
       }).then((response) => {
         var forecastArray = response.daily;
         for(var i = 1; i < 6; i++){
-          var dailyForecastDiv = $("<div>").attr("class", ".weeklyForecast");
+          var dailyForecastDiv = $("<div>").attr("class", "forecastCards");
           var date = String(moment().add(i, 'day').format('L'));
 
-}
+          dailyForecastDiv.prepend($("<p>").text(date));
+          dailyForecastDiv.append($("<img>").attr("src", "https://openweathermap.org/img/wn/" + forecastArray[i].weather[0].icon + "@2x.png"));
+          dailyForecastDiv.append($("<p>").html("Temperature: "+ forecastArray[i].temp.day + '9&#176' + "F"));
+          dailyForecastDiv.append($("<p>").text("Humidity: "+ forecastArray[i].humidity + "%"));
+          $("#weeklyForecast").append(dailyForecastDiv);
+        }; 
+      });
+ });
+};
 
-
+openWeatherData();
 searchListButtons();
