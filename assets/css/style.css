@@ -20,7 +20,7 @@
     background-color: green;
     display: inline-block;
 }
-#moderate{
+#medium{
     background-color: yellow;
     display: inline-block;
 }
@@ -28,11 +28,10 @@
     background-color: orange;
     display: inline-block;
 }
-#veryHigh{
+#highest{
     background-color: red;
     display: inline-block;
 }
-
 
 
 

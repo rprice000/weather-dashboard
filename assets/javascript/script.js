@@ -67,13 +67,13 @@ function openWeatherData(searchInput){
              $("#uvIndex").append($("<div>").attr("id", "low").text(uvIndexEl));
           }
           else if(uvIndexEl < 6){
-             $("#uvIndex").append($("<div>").attr("id", "moderate").text(uvIndexEl));
+             $("#uvIndex").append($("<div>").attr("id", "medium").text(uvIndexEl));
           }
           else if(uvIndexEl < 8){
              $("#uvIndex").append($("<div>").attr("id", "high").text(uvIndexEl));
           }
           else{
-             $("#uvIndex").append($("<div>").attr("id", "veryHigh").text(uvIndexEl));
+             $("#uvIndex").append($("<div>").attr("id", "highest").text(uvIndexEl));
           };
       });
       //API call for displaying 5-Day Forecast
