@@ -1,4 +1,4 @@
-
+var newInput = false;
 
 $("#searchButton").on("click", () => {
   var searchInput = $("#userInput").val();
