@@ -45,9 +45,12 @@ function openWeatherData(searchInput){
       $("#temperature").html("Temperature: "+(response.main.temp) + '9&#176' + "F");
       $("#humidity").html("Humidity: " +(response.main.humidity) + "%");
       $("#windSpeed").html("Wind Speed: " +(response.wind.speed) + " MPH");
-
-      var longitude = response.coord.lon;
       var lattitude = response.coord.lat;
+      var longitude = response.coord.lon;
+      $.ajax({
+        url: "https://api.openweathermap.org/data/2.5/uvi?lat="+ lattitude + "&lon=" + longitude + "&appid=" + openWeatherKey,
+        method: "GET"
+      }).then((response) =>{
 }
 
 
