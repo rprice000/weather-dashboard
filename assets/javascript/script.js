@@ -28,7 +28,18 @@ function searchListButtons(searchInput) {
 function openWeatherData(searchInput){
   var openWeatherKey = "60c51965c01263ac96f2d86f2817986b";
   var openWeatherURL = "https://api.openweathermap.org/data/2.5/weather?q=" + searchInput + "&units=imperial&appid=" + openWeatherKey;
-  
+
+  $.ajax({
+    url: openWeatherURL,
+    method: "GET"
+   })
+   .then((response) =>{
+      var city = response.name;
+      if(newInput){
+        searchListButtons(city);
+      };
+      $(".weeklyForecast").remove();
+
 }
 
 
