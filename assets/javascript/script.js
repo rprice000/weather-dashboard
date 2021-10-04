@@ -51,27 +51,19 @@ function openWeatherData(searchInput){
         url: "https://api.openweathermap.org/data/2.5/uvi?lat="+ lattitude + "&lon=" + longitude + "&appid=" + openWeatherKey,
         method: "GET"
       }).then((response) =>{
-        var uvIndex = response.value;
+        var uvIndexEl = response.value;
         $("#uvIndex").text("UV Index: ");
-        if (uvIndex < 3){
-             $("#uvIndex").append(
-               $("<div>").attr("class", ".low").text(uvIndex)
-              );
+        if (uvIndexEl < 3){
+             $("#uvIndex").append($("<div>").attr("class", "low").text(uvIndexEl));
         }
-        else if(uvIndex < 6){
-             $("#uvIndex").append(
-               $("<div>").attr("class", ".moderate").text(uvIndex)
-             );
+        else if(uvIndexEl < 6){
+             $("#uvIndex").append($("<div>").attr("class", "moderate").text(uvIndexEl));
         }
-        else if(uvIndex < 8){
-             $("#uvIndex").append(
-               $("<div>").attr("class", ".high").text(uvIndex)
-             );
+        else if(uvIndexEl < 8){
+             $("#uvIndex").append($("<div>").attr("class", "high").text(uvIndexEl));
         }
         else{
-             $("#uvIndex").append(
-               $("<div>").attr("class", ".veryHigh").text(uvIndex)
-             );
+             $("#uvIndex").append($("<div>").attr("class", "veryHigh").text(uvIndexEl));
         };
       });
       $.ajax({

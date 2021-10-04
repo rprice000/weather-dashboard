@@ -15,3 +15,33 @@
 #cityContentColumn {
     border: 5px solid black;
 }
+
+.low{
+    height: 20px;
+    width: 40px;
+    background-color: green;
+    text-align: center;
+    display: inline-block;
+}
+
+.moderate{
+    height: 25px;
+    width: 40px;
+    background-color: yellow;
+    text-align: center;
+    display: inline-block;
+}
+.high{
+    height: 25px;
+    width: 40px;
+    background-color: orange;
+    text-align: center;
+    display: inline-block;
+}
+.veryHigh{
+    height: 25px;
+    width: 40px;
+    background-color: red;
+    text-align: center;
+    display: inline-block;
+}
