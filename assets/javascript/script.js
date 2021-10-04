@@ -46,6 +46,8 @@ function openWeatherData(searchInput){
       $("#humidity").html("Humidity: " +(response.main.humidity) + "%");
       $("#windSpeed").html("Wind Speed: " +(response.wind.speed) + " MPH");
 
+      var longitude = response.coord.lon;
+      var lattitude = response.coord.lat;
 }
 
 
