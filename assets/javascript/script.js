@@ -40,6 +40,12 @@ function openWeatherData(searchInput){
       };
       $(".weeklyForecast").remove();
 
+      $("#cityName").text((city));
+      $("#cityName").append($("<img>").attr("src", "https://openweathermap.org/img/wn/" + response.weather[0].icon + "@2x.png"));
+      $("#temperature").html("Temperature: "+(response.main.temp) + '9&#176' + "F");
+      $("#humidity").html("Humidity: " +(response.main.humidity) + "%");
+      $("#windSpeed").html("Wind Speed: " +(response.wind.speed) + " MPH");
+
 }
 
 
