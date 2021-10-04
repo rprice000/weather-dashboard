@@ -16,24 +16,6 @@ function searchListButtons(searchInput) {
     $("#searchHistory").prepend(cityButton);
 }
 
-// Event Listener when user Clicks on a Existing City from past Searches
-$("#searchHistory").on("click", (event) => {
-  if(event.target.matches("button")){
-    var searchInput = event.target.textContent;
-    cityInput = false;
-    openWeatherData(searchInput);
-  }
-});
-
-
-//  Event Listener when user clicks on the Search button after typing in city name
-$("#searchButton").on("click", () => {
-  var searchInput = $("#userInput").val();
-  cityInput = true;
-  openWeatherData(searchInput);
-  $("#userInput").val("");
-});
-
 
 // Function for pullind openweather data and displaying them on the web page
 function openWeatherData(searchInput){
@@ -95,3 +77,19 @@ function openWeatherData(searchInput){
 
 openWeatherData();
 searchListButtons();
+
+
+// Event Listener when user Clicks on a Existing City from past Searches
+$("#searchHistory").on("click", (event) => {
+  if(event.target.matches("button")){
+    
+    openWeatherData(searchInput);
+  }
+});
+
+
+//  Event Listener when user clicks on the Search button after typing in city name
+$("#searchButton").on("click", () => {
+  var searchInput = $("#userInput").val();
+  
+});
