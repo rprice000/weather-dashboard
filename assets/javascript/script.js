@@ -51,6 +51,36 @@ function openWeatherData(searchInput){
         url: "https://api.openweathermap.org/data/2.5/uvi?lat="+ lattitude + "&lon=" + longitude + "&appid=" + openWeatherKey,
         method: "GET"
       }).then((response) =>{
+        var uvIndex = response.value;
+        $("#uvIndex").text("UV Index: ");
+        if (uvIndex < 3){
+             $("#uvIndex").append(
+               $("<div>").attr("class", ".low").text(uvIndex)
+              );
+        }
+        else if(uvi < 6){
+             $("#uvIndex").append(
+               $("<div>").attr("class", ".moderate").text(uvIndex)
+             );
+        }
+        else if(uvIndex < 8){
+             $("#uvIndex").append(
+               $("<div>").attr("class", ".high").text(uvIndex)
+             );
+        }
+        else{
+             $("#uvIndex").append(
+               $("<div>").attr("class", ".veryHigh").text(uvIndex)
+             );
+        };
+      });
+      $.ajax({
+        url: "https://api.openweathermap.org/data/2.5/onecall?lat=" + lattitude + "&lon=" + longitude + "&units=imperial&exclude=current,minutely,hourly,alerts&appid=" + openWeatherKey,
+        method: "GET"
+      }).then((response) => {
+        var forecastArray = response.daily;
+
+
 }
 
 
