@@ -79,7 +79,9 @@ function openWeatherData(searchInput){
         method: "GET"
       }).then((response) => {
         var forecastArray = response.daily;
-
+        for(let i = 1; i < 6; i++){
+          var dailyForecastDiv = $("<div>").attr("class", ".weeklyForecast");
+          let date = String(moment().add(i, 'day').format('L'));
 
 }
 
