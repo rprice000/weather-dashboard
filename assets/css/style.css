@@ -4,7 +4,7 @@
     height: 300px;
 }
 
-#forecastCards{
+.forecastCards{
     border: 5px solid black;
     background-color: gray;
     color: white;   
@@ -37,12 +37,11 @@
 }
 
 
-#searchListButton {
-    border-radius: 5px;
-    border: 50px;
-    border-width: 40px;
-    border-style: double;
-    border-color: black;
-    height: 600px;
-    background-color: chartreuse;
+
+
+.searchListButton {
+    text-align: center;
+    background: none;
+    border: none;
+    display: block;
 }

@@ -32,12 +32,16 @@
                 <h2>Search for a City</h2>
                 <input type="text" placeholder="City Name" id="userInput">
                 <button type="button" class="button" id="searchButton">Search</button>
-                <div id="searchHistory"></div>
+                <!-- <button type="button" class="button" id="clearHistory" onclick="deleteSearchList()">Clear Search History</button> -->
+                <div id="searchHistoryContainer">
+                    <div id="searchHistory">
+                    </div>
+                </div>
             </div>
 <!-- CITY SEARCH / SEARCH HISTORY COLUMN END -->
 
 <!-- CITY WEATHER DATA START -->
-            <div class="col-md-9">
+            <div class="col-md-9" id="completeCityData">
   <!-- CURRENT WEATHER DATA START -->
                 <div class="row" id="cityContentColumn">
                     <div class="col" id="currentWeather">

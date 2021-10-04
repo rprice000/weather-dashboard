@@ -1,16 +1,22 @@
-var cityInput = false;
 
 
-$("#searchButton").on("click", () => {
-  var searchInput = $("#userInput").val();
-  cityInput = true;
-  openWeatherData(searchInput);
-  $("#userInput").val("");
-});
+// function deleteSearchList() {
+//   document.getElementById("searchHistory").innerHTML = "";
+//   document.getElementById("completeCityData").innerHTML = "";
+// }
 
 
+// Function that creates Search History Buttons
+function searchListButtons(searchInput) {
+    var cityButton = $("<button>")
+    cityButton.text(searchInput);
+    cityButton.attr("class", "btn btn-block");
+    cityButton.attr("class", "searchListButton")
+    cityButton.attr("cityData", searchInput);
+    $("#searchHistory").prepend(cityButton);
+}
 
-
+// Event Listener when user Clicks on a Existing City from past Searches
 $("#searchHistory").on("click", (event) => {
   if(event.target.matches("button")){
     var searchInput = event.target.textContent;
@@ -20,14 +26,16 @@ $("#searchHistory").on("click", (event) => {
 });
 
 
-function searchListButtons(searchInput) {
-    var cityButton = $("<button>")
-    cityButton.text(searchInput);
-    cityButton.attr("id", " btn btn-block searchListButton");
-    cityButton.attr("cityData", searchInput);
-    $("#searchHistory").prepend(cityButton);
-}
+//  Event Listener when user clicks on the Search button after typing in city name
+$("#searchButton").on("click", () => {
+  var searchInput = $("#userInput").val();
+  cityInput = true;
+  openWeatherData(searchInput);
+  $("#userInput").val("");
+});
 
+
+// Function for pullind openweather data and displaying them on the web page
 function openWeatherData(searchInput){
   var openWeatherKey = "60c51965c01263ac96f2d86f2817986b";
   var openWeatherURL = "https://api.openweathermap.org/data/2.5/weather?q=" + searchInput + "&units=imperial&appid=" + openWeatherKey;
@@ -39,14 +47,18 @@ function openWeatherData(searchInput){
       if(cityInput){
         searchListButtons(city);
       };
-      $("#forecastCards").remove();
+      // Removes existing cards for new search
+      $(".forecastCards").remove();
+      //Data to be displayed in currentWeather section
       $("#cityName").text((city));
       $("#cityName").append($("<img>").attr("src", "https://openweathermap.org/img/wn/" + response.weather[0].icon + "@2x.png"));
       $("#temperature").html("Temperature: "+ (response.main.temp).toFixed(1) + '9&#176'+"F");
       $("#humidity").html("Humidity: " + (response.main.humidity) + "%");
       $("#windSpeed").html("Wind Speed: " + (response.wind.speed) + " MPH");
+
       var lattitude = response.coord.lat;
       var longitude = response.coord.lon;
+      //API call for UV Index data
       $.ajax({url: "https://api.openweathermap.org/data/2.5/uvi?lat="+ lattitude + "&lon=" + longitude + "&appid=" + openWeatherKey, method: "GET"})
         .then((response) =>{
           var uvIndexEl = response.value;
@@ -64,11 +76,12 @@ function openWeatherData(searchInput){
              $("#uvIndex").append($("<div>").attr("id", "veryHigh").text(uvIndexEl));
           };
       });
+      //API call for displaying 5-Day Forecast
       $.ajax({url: "https://api.openweathermap.org/data/2.5/onecall?lat=" + lattitude + "&lon=" + longitude + "&units=imperial&exclude=current,minutely,hourly,alerts&appid=" + openWeatherKey, method: "GET"})
         .then((response) => {
           var forecastArray = response.daily;
           for(var i = 1; i < 6; i++){
-            var dailyForecastDiv = $("<div>").attr("id", "forecastCards");
+            var dailyForecastDiv = $("<div>").attr("class", "forecastCards");
             var date = String(moment().add(i, 'day').format('L'));
             dailyForecastDiv.prepend($("<p>").text(date));
             dailyForecastDiv.append($("<img>").attr("src", "https://openweathermap.org/img/wn/" + forecastArray[i].weather[0].icon + "@2x.png"));
