@@ -18,7 +18,7 @@ weather forecast.  Search data are pulled from https://openweathermap.org/api.
 # Screenshots
 
 - All screenshots are inside the assets folder within the screenshots folder
--./assets/screenshots/...
+-./assets/images/...
 
 # Technologies
 - HTML5
